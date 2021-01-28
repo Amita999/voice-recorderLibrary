@@ -116,20 +116,20 @@ try {
     }
   
     // Delete note.
-    if(target.hasClass('delete-note')) {
-      var dateTime = target.siblings('.date').text();  
+    if(target.hasID('delete-note')) {
+      var dateTime = target.siblings('.date').text();   
       deleteNote(dateTime);
       target.closest('.note').remove();
     }
 
     //Download note
-    if(target.hasClass('download-note')) {
-        var content = target.closest('.note').find('.content').text();
-        download(content);
-        // var dateTime = target.siblings('.date').text();  
-        // deleteNote(dateTime);
-        // target.closest('.note').remove();
-      }
+    // if(target.hasClass('download-note')) {
+    //     var content = target.closest('.note').find('.content').text();
+    //     download(content);
+    //     // var dateTime = target.siblings('.date').text();  
+    //     // deleteNote(dateTime);
+    //     // target.closest('.note').remove();
+    //   }
 
 
   });
@@ -159,7 +159,7 @@ try {
         <p style="margin-right: 2.5em" class="content">${note.content}</p>
         </p>
         <button type="button" class="btn btn-outline-primary listen-note">Listen to Recording</button>
-        <button type="button" class="btn btn-outline-primary delete-note">Delete </button>
+        <button type="button" class="btn btn-outline-primary delete-note" id ="delete-note">Delete </button>
         <button type="button" class="btn btn-outline-primary download-note">Download Recording</button>
       </p>
         </li>`;     
@@ -195,11 +195,12 @@ try {
   
   
   function deleteNote(dateTime) {
+    console.log("iNSIDE delete note");
     localStorage.removeItem('note-' + dateTime); 
   }
 
-  function download(content){
+  // function download(content){
       
-  }
+  // }
   
   
